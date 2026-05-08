@@ -1,0 +1,514 @@
+/* ===========================
+   CONFIGURACIÓN GENERAL
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a1a1a;
+    background-color: #FAEBDD;
+    line-height: 1.6;
+}
+
+/* ===========================
+   LOGO
+   =========================== */
+.logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo strong {
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #000; }
+
+.active {
+    color: #df2525 !important;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+.btn-sign {
+    background: #000;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.btn-sign:hover { transform: scale(1.05); }
+
+/* ===========================
+   HEADER
+   =========================== */
+.catalogo-header {
+    padding: 60px 8% 40px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.header-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #a0785a;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.catalogo-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.catalogo-header h1 span {
+    color: #a0785a;
+}
+
+.header-desc {
+    color: #666;
+    font-size: 1.05rem;
+    max-width: 550px;
+}
+
+/* ===========================
+   GRID DE CATÁLOGOS
+   =========================== */
+.catalogos-container {
+    padding: 20px 8% 60px;
+}
+
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* ===========================
+   TARJETA DE CATÁLOGO
+   =========================== */
+.catalogo-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    cursor: pointer;
+}
+
+.catalogo-card:nth-child(1) { animation-delay: 0.2s; }
+.catalogo-card:nth-child(2) { animation-delay: 0.4s; }
+
+.catalogo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.13);
+}
+
+/* Imagen / Preview */
+.catalogo-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    padding: 14px 14px 0 14px;
+}
+
+.catalogo-preview {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f9d0d8, #f5a8b8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalogo-preview.primavera {
+    background: linear-gradient(135deg, #fff9c4, #ffd54f);
+}
+
+.preview-icon {
+    font-size: 4rem;
+    color: rgba(180, 120, 0, 0.7); /* dorado oscuro en vez de blanco */
+}
+
+/* Overlay al hacer hover */
+.catalogo-overlay {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.catalogo-card:hover .catalogo-overlay {
+    opacity: 1;
+}
+
+.catalogo-overlay span {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Información de la tarjeta */
+.catalogo-info {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.catalogo-tag {
+    display: inline-block;
+    background: rgba(160, 120, 90, 0.15);
+    color: #a0785a;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.catalogo-tag.verde {
+    background: rgba(100, 160, 100, 0.15);
+    color: #4a8a4a;
+}
+
+.catalogo-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.catalogo-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.catalogo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.catalogo-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: #e53935;
+    font-weight: 600;
+}
+
+.catalogo-cta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: letter-spacing 0.3s;
+}
+
+.catalogo-card:hover .catalogo-cta {
+    letter-spacing: 0.05em;
+}
+
+/* ===========================
+   BANNER DE CONTACTO
+   =========================== */
+.contacto-banner {
+    background: #2b1a10;
+    color: #f5f0eb;
+    border-radius: 20px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.banner-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.banner-text p {
+    color: #c4a882;
+    font-size: 0.95rem;
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+    background-color: #2b1a10;
+    color: #f5f0eb;
+    padding: 40px 60px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.footer-brand .logo strong {
+    color: #f5f0eb;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+}
+
+.footer-brand .logo img {
+    width: 45px;
+    height: 45px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+    color: #c4a882;
+    font-size: 0.9rem;
+    max-width: 250px;
+}
+
+.footer-social h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.1em;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.facebook  { background-color: #1877f2; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.whatsapp  { background-color: #25d366; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    color: #c4a882;
+    font-size: 0.85rem;
+}
+
+/* ===========================
+   ANIMACIONES
+   =========================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    .nav-links { gap: 15px; font-size: 0.9rem; }
+    .catalogo-header h1 { font-size: 2.2rem; }
+    .catalogo-grid { grid-template-columns: 1fr; }
+    .contacto-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 25px;
+    }
+    footer { padding: 40px 25px 20px; }
+    .footer-container { flex-direction: column; }
+}
+
+
+/* ---- TABLET (hasta 1024px) ---- */
+@media (max-width: 1024px) {
+    .hero-text h1 { font-size: 2.5rem; }
+    .grid { flex-wrap: wrap; }
+    .card { min-width: 280px; }
+}
+
+/* ---- CELULAR (hasta 768px) ---- */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+        gap: 12px;
+    }
+    .nav-links { 
+        gap: 12px; 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Logo más pequeño */
+    .logo img { width: 55px; height: 55px; }
+    .logo strong { font-size: 1.3rem; }
+
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+        text-align: center;
+    }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text p { font-size: 0.95rem; }
+
+    /* Cards apiladas */
+    .grid { flex-direction: column; }
+    .card { width: 100%; }
+
+    /* Fondo */
+    body {
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll; /* fixed no funciona bien en móvil */
+    }
+
+    /* Footer */
+    footer { padding: 30px 20px 20px; }
+    .footer-container { flex-direction: column; gap: 20px; }
+
+    /* Banner contacto */
+    .contacto-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+}
+
+/* ---- CELULAR PEQUEÑO (hasta 480px) ---- */
+@media (max-width: 480px) {
+    .hero-text h1 { font-size: 1.6rem; }
+    .catalogo-header h1 { font-size: 1.8rem; }
+    .nav-links { font-size: 0.85rem; gap: 8px; }
+}

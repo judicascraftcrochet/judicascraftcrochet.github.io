@@ -1,0 +1,291 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #FAEBDD; /* fondo crema sólido, sin imagen */
+}
+
+.hero {
+    background-image: url(fondo-judicas.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container h2 {
+    color: #2b1a10;
+    font-size: 2rem;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.container p {
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    z-index: 1;
+}
+.logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 10; /* o 400 */
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo strong {
+  font-size: 2rem; /* aumenta este valor al gusto */
+  letter-spacing: 0.15em;
+}
+
+.logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Navbar */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 8%; 
+}
+.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+.nav-links a { text-decoration: none; color: #555; font-weight: 500; }
+.active { color: #df2525 !important; border-bottom: 2px solid #000; padding-bottom: 5px; }
+.nav-links a.active { border-bottom: 2px solid #000; padding-bottom: 5px; color: #000; }
+.btn-sign { background: #000; color: #fff; padding: 10px 25px; border-radius: 30px; border: none; cursor: pointer; }
+
+/* Header de la sección */
+.ataques-header {
+    text-align: center;
+    padding: 60px 10%;
+    animation: fadeIn 1s ease-out;
+}
+.ataques-header h1 { font-size: 2.8rem; margin-bottom: 15px; }
+.ataques-header p { color: #666; line-height: 1.6; }
+
+/* Grid de Tarjetas */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 8% 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: none;
+
+}
+
+/* Tarjeta Individual */
+.attack-card {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    overflow: visible; /* ← cambia hidden por visible */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* ← agrega el borde */
+}
+
+.attack-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagen dentro de la tarjeta */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    padding: 12px 12px 0 12px; /* ← agrega espacio alrededor de la imagen */
+    box-sizing: border-box;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px; /* ← redondea las esquinas de la imagen */
+}
+
+/* Contenido de la tarjeta */
+.card-content { padding: 20px; }
+.card-content h3 { margin-bottom: 15px; font-size: 1.2rem; }
+.card-content p { font-size: 0.85rem; color: #555; margin-bottom: 5px; }
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    .grid-container { grid-template-columns: 1fr; }
+    .ataques-header h1 { font-size: 1.8rem; }
+}
+
+/* Importar Font Awesome en el <head> de tu HTML */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> */
+
+footer {
+  background-color: #2b1a10;
+  color: #f5f0eb;
+  padding: 40px 60px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-brand .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-brand .logo strong {
+  color: #f5f0eb;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+}
+
+.footer-brand .logo img {
+  width: 45px;
+  height: 45px;
+  filter: brightness(0) invert(1); /* hace el logo blanco */
+}
+
+.footer-brand p {
+  color: #c4a882;
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+
+.footer-social h4 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.facebook  { background-color: #1877f2; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.whatsapp  { background-color: #25d366; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  text-align: center;
+  color: #c4a882;
+  font-size: 0.85rem;
+}
+
+
+/* ---- TABLET (hasta 1024px) ---- */
+@media (max-width: 1024px) {
+    .hero-text h1 { font-size: 2.5rem; }
+    .grid { flex-wrap: wrap; }
+    .card { min-width: 280px; }
+}
+
+/* ---- CELULAR (hasta 768px) ---- */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+        gap: 12px;
+    }
+    .nav-links { 
+        gap: 12px; 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Logo más pequeño */
+    .logo img { width: 55px; height: 55px; }
+    .logo strong { font-size: 1.3rem; }
+
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+        text-align: center;
+    }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text p { font-size: 0.95rem; }
+
+    /* Cards apiladas */
+    .grid { flex-direction: column; }
+    .card { width: 100%; }
+
+    /* Fondo */
+    body {
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll; /* fixed no funciona bien en móvil */
+    }
+
+    /* Footer */
+    footer { padding: 30px 20px 20px; }
+    .footer-container { flex-direction: column; gap: 20px; }
+
+    /* Banner contacto */
+    .contacto-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+}
+
+/* ---- CELULAR PEQUEÑO (hasta 480px) ---- */
+@media (max-width: 480px) {
+    .hero-text h1 { font-size: 1.6rem; }
+    .catalogo-header h1 { font-size: 1.8rem; }
+    .nav-links { font-size: 0.85rem; gap: 8px; }
+}
