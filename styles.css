@@ -368,6 +368,17 @@ footer h4{ font-family: var(--body); letter-spacing:0.08em; text-transform:upper
   color: rgba(233,214,188,0.7);
   font-size: 0.82rem;
 }
+.credit-link{
+  color: var(--sand);
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .25s ease, color .25s ease;
+}
+.credit-link:hover{
+  color: var(--terracota);
+  transform: scale(1.12);
+}
 
 /* =================== WHATSAPP FLOTANTE =================== */
 .wa-float{
