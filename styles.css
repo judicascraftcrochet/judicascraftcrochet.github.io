@@ -541,6 +541,16 @@ footer h4{ font-family: var(--body); letter-spacing:0.08em; text-transform:upper
 }
 .lightbox-download:hover{ background: var(--terracota-d); transform: translateY(-2px); }
 
+.credit-link{
+  color: var(--sand);
+  font-weight: 800;
+  transition: transform .25s ease, color .25s ease;
+}
+.credit-link:hover{
+  color: var(--terracota);  /* cambia a tu color de acento */
+  transform: scale(1.12);   /* se agranda un poco */
+}
+
 /* =================== RESPONSIVE =================== */
 @media (max-width: 1024px){
   .hero{ grid-template-columns:1fr; }
